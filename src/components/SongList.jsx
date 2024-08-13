@@ -4,8 +4,8 @@ const SongList = ({ songs }) => {
             <h2>Da Song List</h2>   
             <ul>
                 {songs.map((song, index) => (
-                    <li index={index} className="song-item">
-                        <img src={song.coverArt} alt={`${song.name} conver`} className="conver-art" />
+                    <li key={index} className="song-item">
+                        <img src={song.coverArt} alt={`${song.name} conver`} className="cover-art" />
                     <div>
                         <strong>{song.name}</strong> - {song.releaseDate}
                     </div>
