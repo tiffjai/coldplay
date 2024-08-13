@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArtistInfo, SongList } from './components';
+import { ArtistInfo, SongList, AddSongForm } from './components';
 
 const App = () => {
   //State variable
@@ -22,6 +22,7 @@ const handleAddSong = (songData) => {
   return (
     <div className="container">
       <ArtistInfo />
+      <AddSongForm onAddSong={handleAddSong} />
       <SongList songs={songs} />
     </div>
   )
