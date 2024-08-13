@@ -98,3 +98,17 @@ body {
 .add-song-form button:hover {
   background-color: #FFBB93;
 }
+
+.like-button {
+  background-color: #eee;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.like-button.liked {
+  background-color: #FF6F61;
+  color: white;
+}

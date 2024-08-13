@@ -1,3 +1,5 @@
+import LikeButton from './LikeButton';
+
 const SongList = ({ songs }) => {
     return (
         <div className="song-list">
@@ -9,6 +11,7 @@ const SongList = ({ songs }) => {
                     <div>
                         <strong>{song.name}</strong> - {song.releaseDate}
                     </div>
+                    <LikeButton />
                     </li>
                 ))}
             </ul>
