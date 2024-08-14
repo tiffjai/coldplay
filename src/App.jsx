@@ -11,6 +11,7 @@ const Navigation = () => {
         <NavLink to="/" end>Home</NavLink>
         <NavLink to="/artist">Artist Info</NavLink>
         <NavLink to="/songs">Songs</NavLink>
+        <NavLink to="/songs/add">Add Song</NavLink>
         <NavLink to="/contact">Contact</NavLink>
       </nav>
       <button className="back-button" onClick={() => navigate(-1)}>Back</button>
