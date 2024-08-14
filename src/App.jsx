@@ -13,7 +13,7 @@ const Navigation = () => {
         <NavLink to="/songs">Songs</NavLink>
         <NavLink to="/contact">Contact</NavLink>
       </nav>
-      <button onClick={() => navigate(-1)}>Back</button>
+      <button className="back-button" onClick={() => navigate(-1)}>Back</button>
     </div>
   );
 };
@@ -45,7 +45,7 @@ const App = () => {
           <Route path="/artist" element={<ArtistInfo />} />
           <Route path="/songs" element={<SongList songs={songs} />} />
           <Route path="/songs/add" element={<AddSongForm onAddSong={handleAddSong} />} />
-          <Route path="/contact" element={<div>Contact us at: tiffanieho@outlook.com </div>} />
+          <Route path="/contact" element={<div>Contacts: tiffanieho@outlook.com </div>} />
         </Routes>
       </div>
     </Router>
