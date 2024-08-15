@@ -1,6 +1,7 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import { ArtistInfo, SongList, AddSongForm } from './components';
+import { MusicProvider } from './MusicContext';  // Import the MusicProvider
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -20,36 +21,21 @@ const Navigation = () => {
 };
 
 const App = () => {
-  const [songs, setSongs] = useState([
-    {
-      name: 'Yellow',
-      releaseDate: '2000-06-26',
-      coverArt: 'https://upload.wikimedia.org/wikipedia/en/9/9b/Yellow_cover_art.JPG'
-    },
-    {
-      name: 'Viva La Vida',
-      releaseDate: '2008-05-25',
-      coverArt: 'https://m.media-amazon.com/images/I/9145yafeO2L._UF894,1000_QL80_.jpg'
-    }
-  ]);
-
-  const handleAddSong = (songData) => {
-    setSongs((prevSongs) => [...prevSongs, songData]);
-  };
-
   return (
-    <Router>
-      <div className="app">
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<h2>TIFFJAI PICKS</h2>} />
-          <Route path="/artist" element={<ArtistInfo />} />
-          <Route path="/songs" element={<SongList songs={songs} />} />
-          <Route path="/songs/add" element={<AddSongForm onAddSong={handleAddSong} />} />
-          <Route path="/contact" element={<div>Contacts: tiffanieho@outlook.com </div>} />
-        </Routes>
-      </div>
-    </Router>
+    <MusicProvider>  {/* Wrap the app with MusicProvider */}
+      <Router>
+        <div className="app">
+          <Navigation />
+          <Routes>
+            <Route path="/" element={<h2>TIFFJAI PICKS</h2>} />
+            <Route path="/artist" element={<ArtistInfo />} />
+            <Route path="/songs" element={<SongList />} />  {/* No need to pass songs as props */}
+            <Route path="/songs/add" element={<AddSongForm />} />  {/* Context handles adding songs */}
+            <Route path="/contact" element={<div>Contacts: tiffanieho@outlook.com </div>} />
+          </Routes>
+        </div>
+      </Router>
+    </MusicProvider>
   );
 };
 
